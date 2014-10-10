@@ -1,3 +1,147 @@
+// var theCanvas = document.getElementById('Canvas1');
+//       theCanvas.width = 150;
+//       theCanvas.height = 150;
+
+
+// var theCanvas = document.getElementById('Canvas1');
+// if (theCanvas && theCanvas.getContext) {
+//       var ctx = theCanvas.getContext("2d");
+//       if (ctx) {
+//             // draw just a stroked rectangle
+//             ctx.strokeStyle = "blue";
+//             ctx.lineWidth = 5;
+//             ctx.strokeRect(25,25,100,125);
+            
+//             // draw just a filled rectangle
+//             ctx.fillStyle = "green";
+//             ctx.fillRect(175, 25, 100, 125);
+                                                
+//             // draw a stroked and filled rectangle
+//             ctx.strokeStyle = "red";
+//             ctx.fillStyle = "yellow";
+//             ctx.lineWidth = 10;
+//             ctx.fillRect(325, 25, 100, 125);
+//             ctx.strokeRect(325,25,100,125);
+            
+//             // clear a rectangle
+//             ctx.clearRect(15, 75, 450, 50);
+//       }
+// }
+
+
+// draw lines of varying widths
+var theCanvas = document.getElementById('Canvas1');
+if (theCanvas && theCanvas.getContext) {
+      var ctx = theCanvas.getContext("2d");
+      if (ctx) {
+            for (var i = 0; i < 10; i++){
+                  ctx.beginPath();
+                  ctx.lineWidth = i+1;
+                  ctx.moveTo(25, 25+i*15);
+                  ctx.lineTo(475, 25+i*15);
+                  ctx.stroke();
+            }                                   
+      }
+}
+// demonstrate the lineCap endings
+var theCanvas = document.getElementById('Canvas2');
+if (theCanvas && theCanvas.getContext) {
+      var ctx = theCanvas.getContext("2d");
+      if (ctx) {
+
+            // draw the cyan vertical guidelines
+            ctx.strokeStyle="cyan";
+            ctx.lineWidth=1;
+            ctx.beginPath();
+            ctx.moveTo(50,25);
+            ctx.lineTo(50,175);
+            ctx.moveTo(450,25);
+            ctx.lineTo(450,175);
+            ctx.stroke();
+            
+            // draw lines using each lineCap;
+            ctx.lineWidth = 25;
+            ctx.strokeStyle="black";
+            ctx.lineCap="butt";
+            ctx.beginPath();
+            ctx.moveTo(50,50);
+            ctx.lineTo(450,50);
+            ctx.stroke();                                   
+            ctx.lineCap="round";
+            ctx.beginPath();
+            ctx.moveTo(50,100);
+            ctx.lineTo(450,100);
+            ctx.stroke();                                   
+            ctx.lineCap="square";
+            ctx.beginPath();
+            ctx.moveTo(50,150);
+            ctx.lineTo(450,150);
+            ctx.stroke();                                   
+      }
+}
+
+// Show the lineJoin variations
+var theCanvas = document.getElementById('Canvas3');
+if (theCanvas && theCanvas.getContext) {
+      var ctx = theCanvas.getContext("2d");
+      if (ctx) {
+            ctx.lineWidth = 15;
+            ctx.strokeStyle="black";
+            ctx.lineJoin="round";
+            ctx.beginPath();
+            ctx.moveTo(25,150);
+            ctx.lineTo(75,50);
+            ctx.lineTo(125,150);
+            ctx.stroke();                                   
+            ctx.lineJoin="bevel";
+            ctx.beginPath();
+            ctx.moveTo(175,150);
+            ctx.lineTo(225,50);
+            ctx.lineTo(275,150);
+            ctx.stroke();                                   
+            ctx.lineJoin="miter";
+            ctx.beginPath();
+            ctx.moveTo(325,150);
+            ctx.lineTo(375,50);
+            ctx.lineTo(425,150);
+            ctx.stroke();                                   
+      }
+}
+
+var theCanvas = document.getElementById('Canvas4');
+if (theCanvas && theCanvas.getContext) {
+      var ctx = theCanvas.getContext("2d");
+      if (ctx) {
+            // set up some drawing information
+            ctx.strokeStyle = "red";
+            ctx.fillStyle = "yellow";
+            ctx.lineWidth = 10;
+
+            // draw the first Rectangle
+            ctx.fillRect(25,25,100,125);
+            ctx.strokeRect(25,25,100,125);
+            
+            // now, draw another rectangle with different settings
+            ctx.save(); // this will save the current settings
+            
+            ctx.strokeStyle = "green";
+            ctx.fillStyle = "blue";
+            ctx.lineWidth = 5;
+            ctx.fillRect(175, 25, 100, 125);
+            ctx.strokeRect(175, 25, 100, 125);
+            
+            ctx.restore(); // now restore the original settings
+            
+            // draw a stroked and filled rectangle
+            ctx.fillRect(325, 25, 100, 125);
+            ctx.strokeRect(325,25,100,125);
+
+      }
+}
+
+
+
+// Logo tutorial
 window.onload = function() {
     var theCanvas = document.getElementById('myCanvasElement');
     if (theCanvas && theCanvas.getContext) {
